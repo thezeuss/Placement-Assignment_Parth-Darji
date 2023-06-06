@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="grandparent">
+        <div id="parent">
+          <button id="btn">Click me!</button>
+        </div>
+      </div>
+<script>
+    const grandparent = document.getElementById('grandparent');
+    const parent = document.getElementById('parent');
+    const btn = document.getElementById('btn');
+
+    // Event Bubbling
+    grandparent.addEventListener('click', function () {
+    console.log('grandparent div clicked');
+    });
+
+    parent.addEventListener('click', function () {
+    console.log('parent div clicked');
+    });
+
+    btn.addEventListener('click', function () {
+    console.log('Button clicked');
+    });
+
+    // Event Capturing
+    grandparent.addEventListener(
+    'click',
+    function () {
+        console.log('grandparent div clicked (capturing)');
+    },
+    true
+    );
+
+    parent.addEventListener(
+    'click',
+    function () {
+        console.log('parent div clicked (capturing)');
+    },
+    true
+    );
+
+    btn.addEventListener(
+    'click',
+    function () {
+        console.log('Button clicked (capturing)');
+    },
+    true
+    );
+
+</script>      
+</body>
+</html>
